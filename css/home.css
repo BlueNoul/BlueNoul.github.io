@@ -1,0 +1,124 @@
+/* Home page styles */
+
+/* Banner section */
+.banner {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 150px 0;
+}
+
+.banner h1 {
+    font-size: 70px;
+    margin: 0;
+}
+
+.banner p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+/* Features section */
+.features {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+.features h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features li {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.features li i {
+    font-size: 60px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.features li h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.features li p {
+    font-size: 16px;
+}
+
+/* About section */
+.about {
+    padding: 50px 0;
+}
+
+.about h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+/* Contact section */
+.contact {
+    background-color: #f8f8f8;
+    padding: 50px 0;
+}
+
+.contact h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.contact input[type="text"], .contact textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact textarea {
+    height: 200px;
+}
+
+.contact button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact button[type="submit"]:hover {
+    background-color: #555;
+}

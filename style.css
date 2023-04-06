@@ -1,0 +1,162 @@
+/* style.css */
+
+/* Global styles */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header styles */
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Navigation styles */
+
+nav {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+}
+
+/* Main content styles */
+
+main {
+    padding: 20px;
+}
+
+.main-heading {
+    margin-top: 0;
+}
+
+/* Form styles */
+
+form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Portfolio styles */
+
+.portfolio-item {
+    margin-bottom: 20px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+}
+
+.portfolio-item h2 {
+    margin-top: 0;
+}
+
+/* Forum styles */
+
+.forum-post {
+    margin-bottom: 20px;
+}
+
+.forum-post header {
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.forum-post header h2 {
+    margin: 0;
+}
+
+.forum-post p {
+    margin: 0;
+}
+
+.forum-post footer {
+    text-align: right;
+    font-size: 14px;
+    color: #999;
+}
+
+/* Footer styles */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 30px 0;
+}
+
+footer a {
+    color: #fff;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #ccc;
+}
+
+.footer-bottom {
+    background-color: #222;
+    color: #ccc;
+    padding: 10px 0;
+    font-size: 14px;
+    text-align: center;
+}
