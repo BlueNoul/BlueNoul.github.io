@@ -20,25 +20,33 @@ a {
     margin: 0 auto;
 }
 
-/* Header styles */
+/* Header styles(위쪽 배경) */ 
 
 header {
-    background-color: #333;
+    background: rgb(0,112,255);
+    background: linear-gradient(48deg, rgba(0, 112, 255, 1) 0%, rgba(205, 0, 255, 1) 52%, rgba(255, 0, 0, 1) 87%, rgba(251, 142, 46, 1) 100%);
+   
     color: #fff;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
-}
+
 
 /* Navigation styles */
 
 nav {
-    background-color: #f2f2f2;
-    border-bottom: 1px solid #ccc;
+    
     padding: 10px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, .25); /* 밝게 보이도록 배경색 추가 */
+    border-radius: 30px; /* 둥근 테두리 */
+    box-shadow: 0 6px 20px -15px #000; /* 그림자 효과 */
+    border-width: 0px 0px 0 0; /* 입체감 흰색 테두리 */
+    border-color: #fff;
+    border-style: solid;
+    
 }
 
 nav ul {
@@ -46,16 +54,23 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    
     justify-content: space-between;
 }
 
 nav ul li {
     margin: 0 10px;
+    
+}
+nav ul li:hover {
+    
+    transform: scale(1.2);
 }
 
 nav ul li a {
     display: block;
     padding: 10px;
+    color:white;
 }
 
 /* Main content styles */
