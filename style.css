@@ -15,7 +15,8 @@ a {
 }
 
 .container {
-    width: 90%;
+    padding-left: 50px;
+    width: 80%;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -27,13 +28,26 @@ header {
     background: linear-gradient(48deg, rgba(0, 112, 255, 1) 0%, rgba(205, 0, 255, 1) 52%, rgba(255, 0, 0, 1) 87%, rgba(251, 142, 46, 1) 100%);
    
     color: #fff;
-    padding: 30px;
+    padding: 20px;
     text-align: center;
+    display: flex;
+}
+
+.home h3{
+    font-family: 'Satisfy', cursive;
+    font-size: 30px;
+    width: 120px;
+    line-height: 0px;
+}
+.home :hover {
+    text-transform: uppercase;
 }
 
 
 
 /* Navigation styles */
+
+
 
 nav {
     
