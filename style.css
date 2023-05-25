@@ -26,7 +26,7 @@ header {
     display: flex; 
     
 }
-/* 홈 바로가기 */
+/* 홈 바로가기(left-content) */
 header >div {
     
     flex:1 1 1;
@@ -76,6 +76,7 @@ nav>a{
     height: 100%;
     background-color: black transparent 50%;
     color:white;
+    transition: 500ms margin;
 }
 
 nav>a:first-child{
@@ -84,14 +85,27 @@ nav>a:first-child{
 nav>a:last-child{
     border-radius: 0 10px 10px 0;
 }
-
-
-nav>a:hover {
-    border-radius: 20px;
-    margin: 0 20px;
-    transition: 500ms;
+nav>a:first-child:hover {
+    border-radius: 10px 20px 20px 10px;
+    margin-right: 20px;
     background-color: black;
 }
+
+
+nav>a:nth-child(2):hover {
+    border-radius: 20px;
+    margin: 0 20px;
+    background-color: black;
+}
+
+nav>a:last-child:hover {
+    border-radius: 20px 10px 10px 20px;
+    margin-left: 20px;
+    background-color: black;
+}
+
+
+
 
 
 
