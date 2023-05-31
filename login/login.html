@@ -1,47 +1,181 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="UTF-8">
-    <title>Login - BlueNoul</title>
-    <link rel="stylesheet" href="css/login.css">
-  </head>
-  <body>
-  <header>
+    <title>BlueNoul - Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <!-- 외부 리소스 저장 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <!-- css 파일 -->
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="./login.css">
+    
+    <!-- 스크립트 파일 -->
+    <script src="/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    
+    <script src="https://kit.fontawesome.com/7ca303bf26.js" crossorigin="anonymous"></script>
+    <!-- 외부 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    
+    <script>
+          $(document).ready(function(){
+            let mod = "login";
+            let id = $('#login_id').val();
+            let passwd =$('#login_passwd').val();
+            
+            let txt =$('#message');
+            $('#sign_section').hide();
+
+            //경고창 흔들리는 효과
+            function bounce(){
+              txt.animate({opacity:1}, 700).delay(1000);
+              
+              txt.animate({opacity:0},1000);
+            }
+            //가입 버튼 눌렀을때 가입창 띄우기
+            $('#sign_btn').one('click',function(){
+              mod = "sign";
+              $('#login_section').hide();
+              $('#sign_section').show();
+              console.log(mod);
+              
+              if(mod == "sign"){
+                let sign_id =$('#sign_id');
+                let sign_pwd =$('#sign_passwd');
+                let sign_pwd2 = $('#sign_passwd2');
+               
+
+                $('#sign_btn').on('click',function(){
+                  console.log("가입 시작");
+                  console.log("id: "+sign_id.val());
+                  console.log(sign_pwd.val());
+                  console.log(sign_pwd2.val());
+                  
+                //미일력 항목 찾기
+                if((sign_id.val() =="")||(sign_pwd=="")||(sign_pwd2=="")){
+                  bounce()
+                  txt.text("미입력 항목 존재");
+                }
+                else{
+                  // 존재하는 아이디입니다.
+                    
+                  // 비밀번호가 일치하지 않습니다.
+                    if(sign_pwd.val() != sign_pwd2.val()){
+                      bounce()
+                      txt.text("비밀번호가 일치하지 않습니다");
+                      console.log("nope");
+                    }
+                    else{
+                      
+                      bounce()
+                      
+                      txt.css('color','green');
+                      txt.text("가입 성공").delay(400);
+                      $('#sign_section').submit();
+                      
+                    }
+
+                }
+                  })
+  
+            }
+              $('#login_btn').on('click',function(){
+                mod = "login";
+              
+                console.log(mod);
+                location.reload();
+              });
+
+            
+            }
+            )
+            if(mod == "login"){
+              $('#login_btn').on('click',function(){
+                // 로그인 아이디랑 비밀번호 데이터와 안맞을시 경고
+                  //아이디가 맞지 않습니다.
+                  //비밀번호가 맞지 않습니다.
+                  })
+                }
+            })
+
+
+        
+      
+      
+  
+    </script>
+  
+  </head>  
+  <!-- body------------------------------------------------------------------------- -->
+  <body class="body">
+    <!-- Navigation Bar -->
+    
+    <header class="header">  
+      <div class="home">
+        <a href="../index.html">BlueNoul</a>
+      </div>  
+    
     <div class="container">
-      <nav>
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="board.html">Board</a></li>
-          <li><a href="index.html">Login</a></li>
-        </ul>
-      </nav>
+    <nav class="nav_top">
+      
+      <a id="nav1" href="../portfolio.html">포트폴리오</a>
+      <a id="nav2" href="../board/board.html">게시판</a>
+      <a id="nav3" href="./login.html">로그인</a>
+      
+    </nav>  
+  </div>  
+  
+</header>  
+
+
+<!-- -------------------------------------------------------------------------------- -->
+<!-- 메인 화면 -->
+<div class="in_body"id="login_page" >
+  <section id="wrap">
+    
+    <form id="login_section" action="login_pros.php" method="POST">
+        <input type="text" name="id"class="input_login"id="login_id" placeholder="ID ">
+        <input type="password"name="pw" class="input_login"id="login_passwd" placeholder="Password">
+    </form>
+    <form id="sign_section" action="sign_pros.php" method="POST">
+      
+      <input type="text" name="id"class="input_sign"id="sign_id" placeholder="ID">
+      <input type="password" name="pw"class="input_sign"id="sign_passwd" placeholder="Password">
+      <input type="password" class="input_sign"id="sign_passwd2" placeholder="Password 재확인">
+    </form>
+  </section>
+
+  <div id="message"></div>
+  
+  <div id="button_box">
+    <div class="btns"id="login_btn"><i class="fas fa-lock"></i>로그인</div>
+    <div class="btns"id="sign_btn"><i class="fa-solid fa-user"></i>회원가입</div>
+  </div>
+
+
+</div>
+  <!-- 푸터 -->
+  <footer class ="footer">
+    <div class="container">
+    <nav>
+      <a>유튜브 </a>
+      <a>백준</a>
+      <a>블로그</a>
+      <a>깃허브</a>
+      <a>Email</a>
+    </nav>
     </div>
-  </header>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="login.html" class="active">Login</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <h1>Login</h1>
-      <form action="process_login.php" method="POST">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-      </form>
-    </main>
-    <footer>
-      <p>&copy; 2023 BlueNoul</p>
-    </footer>
-  </body>
+  </footer>
+  
+</body>
 </html>

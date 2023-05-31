@@ -1,46 +1,121 @@
-/* 로그인 페이지 스타일 */
-form {
-    max-width: 400px;
+
+
+
+
+
+
+
+#login_page{
+    
+    justify-content: space-evenly;
+
+}
+
+
+
+#wrap{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    color:black;
+   
+}
+#login_section{
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
-    padding: 20px;
-    background: #f4f7f8;
-    border-radius: 8px;
+}
+#sign_section{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
-h2 {
+
+.input_login{
+    margin: 5% auto;
+    background-color: white;
+    width: 400px;
+    height: 80px;
+    border-radius: 50px;
+    
+    line-height: 100px;
+    font-size: 200%;
+    border-style: none;
     text-align: center;
-    margin-bottom: 40px;
+    animation: fadeIn 1s;
+}
+.input_sign{
+    margin: 5% auto;
+    background-color: white;
+    width: 400px;
+    height: 60px;
+    border-radius: 50px;
+    
+    line-height: 100px;
+    font-size: 200%;
+    border-style: none;
+    text-align: center;
+    animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        
+    }
+    
+    100% {
+        
+        opacity: 1;
+    }
 }
 
-label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
 
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #e8eeef;
-}
-
-button[type="submit"] {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    border-radius: 5px;
-    border: none;
-    background-color: #68b2a0;
-    color: #fff;
-    font-size: 16px;
+#message{
+    margin: 1% auto;
+    width: 50%;
+    height: 7%;
+    
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    opacity: 0;
+    font-size: 130%;
+    line-height: 50px;
     font-weight: bold;
-    cursor: pointer;
-}
+    color: red;
 
-button[type="submit"]:hover {
-    background-color: #509681;
+}
+#message .vib{
+    
+    animation: vibration .1s infinite;
+  }
+  
+  @keyframes vibration {
+    from {
+      transform: rotate(1deg);
+    }
+    to {
+      transform: rotate(-1deg);
+    }
+  }
+ #button_box{
+    margin: 3% auto;
+    display: flex;
+    width: 50%;
+ }
+.btns{
+    margin : 0 auto;
+    border-radius:50px;
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    
+    font-size: 20px;
+    line-height: 50px;
+    text-decoration: none;
+    }
+.btns i{
+    margin-left: 12%;
+    margin-right: 20%;
 }

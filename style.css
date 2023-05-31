@@ -2,35 +2,33 @@
 /* 폰트 */
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 /* Global styles */
-body{
-    height: 100%;
+.body{
+    margin: 0;
+    position: sticky;
+    display: block;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(45deg, rgba(0, 112, 255, 1) 0%, rgba(205, 0, 255, 1) 52%, rgba(255, 0, 0, 1) 87%, rgba(251, 142, 46, 1) 100%);
 }
-.container {
-    
-    width: 70%;
-    max-width: 1200px;
-    margin: 0 auto;
-    
-}
+
+
 /* ------------------------------------------------------------ */
 /* Header styles(위쪽 배경) */ 
 
 header {
-    /* background: rgb(0,112,255);
-    background: linear-gradient(48deg, rgba(0, 112, 255, 1) 0%, rgba(205, 0, 255, 1) 52%, rgba(255, 0, 0, 1) 87%, rgba(251, 142, 46, 1) 100%);
-    */
     
     color: #fff;
     padding: 10px;
     text-align: center;
     display: flex; 
-    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 7%;
 }
 /* 홈 바로가기(left-content) */
-header >div {
-    
-    flex:1 1 1;
-  }
+
 .home:hover{
     transform:scale(1.2);
     animation:  dash 5s linear forwards;
@@ -50,22 +48,22 @@ header >div {
 
 
 /* Navigation styles */
+.container {
+    width: 70%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1 1 1;
+}
 
-
-
-nav {
-    
-    
+.nav_top {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, .25); /* 밝게 보이도록 배경색 추가 */
-    
     box-shadow: 0 6px 20px -15px #000; /* 그림자 효과 */
     border-width: 0px 0px 0 0; /* 입체감 흰색 테두리 */
     border-color: #fff;
     display: flex;
     border-radius: 10px;
-    
     justify-content: space-evenly;
 }
 nav>a{
@@ -76,177 +74,329 @@ nav>a{
     height: 100%;
     background-color: black transparent 50%;
     color:white;
-    transition: 500ms margin;
+    transition: 500ms margin ;
 }
 
-nav>a:first-child{
+#nav1{
     border-radius: 10px 0 0 10px;
 }
-nav>a:last-child{
+#nav3{
     border-radius: 0 10px 10px 0;
 }
-nav>a:first-child:hover {
+#nav1:hover {
     border-radius: 10px 20px 20px 10px;
     margin-right: 20px;
     background-color: black;
+    transition: all 500ms;
 }
 
 
-nav>a:nth-child(2):hover {
+#nav2:hover {
     border-radius: 20px;
     margin: 0 20px;
     background-color: black;
+    transition: all 500ms;
 }
 
-nav>a:last-child:hover {
+#nav3:hover {
     border-radius: 20px 10px 10px 20px;
     margin-left: 20px;
     background-color: black;
-}
-
-
-
-
-
-
+    transition: all 500ms;
+}    
 
 /* ------------------------------------------------------- */
-.backg{
-    background: linear-gradient(45deg, rgba(0, 112, 255, 1) 0%, rgba(205, 0, 255, 1) 52%, rgba(255, 0, 0, 1) 87%, rgba(251, 142, 46, 1) 100%);
-	position:absolute;
-    
-    top: 0;
-    right: 0;
+/* Footer styles */
+footer {
+    padding: 1%;
+    text-align: center;
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    right: 0;
+    height: 7%;
 }
-
-/* backbord styles */
-.bgmask{
-    margin: 3%;
-    background-color: white;
-    border-radius: 20px;
-}
-.home:hover ~ .backbg{
-    /* background-size: 400% 400%;
-    animation: gradients 5s ease infinite; */
-	background:black;
+footer nav{
+    
+    display: flex;
+    justify-content: space-evenly;
     
 }
-@keyframes gradients {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+footer nav a{
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, .25); /* 밝게 보이도록 배경색 추가 */
+    box-shadow: 0 6px 20px -15px #000; /* 그림자 효과 */
+    border-width: 0px 0px 0 0; /* 입체감 흰색 테두리 */
+    border-color: #fff;
+    border-radius: 10px;
+    margin:10px;
+}
+
+/* ----------------------------------------------------------------------------------- */
+/* main page style */
+
+
+.in_body{
+    
+    position: absolute;
+    top: 8vh;
+    bottom: 8vh;
+    
+    left: 10vh;
+    right: 10vh;
+    overflow: hidden;
+    -ms-overflow-style: none; /* 인터넷 익스플로러스크롤바 제거 */
+    scrollbar-width: none; /* 파이어폭스 스크롤바 제거 */
+    
+}
+.in_body::-webkit-scrollbar {
+    display: none;
 }
 
 /* Main content styles */
 
-main {
-    padding: 20px;
-}
-
-.main-heading {
-    margin-top: 0;
-}
-
-/* Form styles */
-
-form {
-    width: 50%;
+.main_section{
+    height: 97%;
     margin: 0 auto;
+    color:white;
+    animation: fadeIn 1s;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        
+    }
+    
+    100% {
+        
+        opacity: 1;
+    }
+}
+
+/* backbord styles */
+.mask{
+    margin: 1%;
+    
+    border-radius: 20px;
+    padding:10px;
+    height: 95%;
+    overflow: hidden;
+}
+
+#main_mask:hover{
+    margin: 1%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(21, 19, 19, 0.25); /* 밝게 보이도록 배경색 추가 */
+    box-shadow: 0 6px 20px -15px #000; /* 그림자 효과 */
+    border-width: 0px 0px 0 0; /* 입체감 흰색 테두리 */
+    border-color: #fff;
+    border-radius: 20px;
+    padding:10px;
+    height:80%;
+    overflow: hidden;
+    transition: all 3s;
+}
+
+#click_tutorial{
+    color: white transparent 50%;
+    margin-top: 5%;
+    font-size: 20px;
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-/* Portfolio styles */
-
-.portfolio-item {
-    margin-bottom: 20px;
-}
-
-.portfolio-item img {
-    width: 100%;
-    height: auto;
-}
-
-.portfolio-item h2 {
-    margin-top: 0;
-}
-
-/* Forum styles */
-
-.forum-post {
-    margin-bottom: 20px;
-}
-
-.forum-post header {
-    background-color: #f2f2f2;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.forum-post header h2 {
-    margin: 0;
-}
-
-.forum-post p {
-    margin: 0;
-}
-
-.forum-post footer {
-    text-align: right;
-    font-size: 14px;
-    color: #999;
-}
-
-/* Footer styles */
-footer {
-    background-color: #343a40;
-    color: #fff;
-    padding: 30px 0;
-}
-
-footer a {
-    color: #fff;
+    text-align: center;
     font-weight: bold;
 }
 
-footer a:hover {
-    color: #ccc;
+
+/* main page text  */
+#main_1{
+    margin-top: 5%;
+    font-size: 200%;
+    
 }
 
-.footer-bottom {
-    background-color: #222;
-    color: #ccc;
-    padding: 10px 0;
-    font-size: 14px;
+
+#main_2{
+    margin-top: 20%;
+    font-size: 110%;
+    line-height: 200%;
+    
+}
+#main_1 h1{
+    position: relative;
+    /* background: linear-gradient(to right, rgba(0, 0, 0, 0) 30%,white);  */
+    backface-visibility: hidden;
+    animation-timing-function: ease-in-out;
+    color:linear-gradient(circle at 90% 80%, transparent, rgb(255, 255, 255));
+    
+    animation: fadeleft 2s ;
+    
+}
+@keyframes fadeleft {
+    0% {
+        color: #ff772e;
+        opacity: 0;
+    }
+    25% {
+        color: rgb(234, 71, 255);
+    }
+    50% {
+        color: #b3b3ff;
+    }
+    75% {
+        color: #c5fff3;
+    }
+    
+    100%{
+        color: white;
+        opacity: 1;
+    }
+    
+}
+
+#main_2 > p{
+    color: white;
+    animation: faidIn 3s ease-in-out;
+    
+}
+
+/* Sub Content layout style*/
+#sec_sub{
+    color: #000;
+    
+}
+#sub_mask{
+    
+    background-color: white;
+    
+    animation: maskChange 1s;
+    overflow: scroll;
+    -ms-overflow-style: none; /* 인터넷 익스플로러스크롤바 제거 */
+    scrollbar-width: none; /* 파이어폭스 스크롤바 제거 */
+    scroll-snap-type: y mandatory;
+}
+
+@keyframes maskChange {
+    0% {
+        
+        height: 80%;
+    }
+    100%{
+        height: 95%;
+    }
+}
+#sub_mask::-webkit-scrollbar {
+    display: none;
+}
+
+.section{
+    
+    position: relative;
+    height: 100%;
+    scroll-snap-align: center;
+    transition: all;
+    
+}
+
+
+
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+
+
+.about_me{
+    padding-top: 10%;
+    display: flex;
+}
+.element_1{
+    
+}
+
+#my_img{
+    
+}
+#about_box{
+    margin-left: 5%;
+    
+    width: 50%;
+    height: 50%;
+    line-height: 150%;
+}
+#about_box h1{
     text-align: center;
+}
+#mylicense{
+    margin-top: 30% ;
+   
+}
+#mylicense h4{
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+/* ---------sec_2 */
+#sec_2{
+}
+#sec_2 h1{
+    margin: 30% 0;
+    text-align: center;
+}
+.lang{
+    
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    
+}
+.lang >div{
+    margin: 4%;
+    width: 120px;
+    height: 50px;
+    padding-top: 3%;
+    font-size: 150%;
+    font-weight: bold;
+    color:#fff;
+    top: 80%;
+    border-radius: 10px;
+    text-align: center;
+
+}
+.lang > div:nth-child(1){
+    background-color: #0015ff;
+}
+.lang > div:nth-child(2){
+    background-color: #0084ff;
+}
+.lang > div:nth-child(3){
+    background-color: #ff8400;
+}
+.lang > div:nth-child(4){
+    background-color: rgb(255, 213, 0);
+}
+.lang > div:nth-child(5){
+    background-color: rgb(255, 111, 0);
 }
