@@ -19,7 +19,6 @@
     <script src="/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- 외부 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
@@ -110,31 +109,6 @@
       });
       
       
-      
-      
-      
-      
-      
-      
-      
-      /*
-      
-      $(document).ready(function() {
-      const max_index =4;
-        const min_index =1;
-        $('#sub_mask').on('wheel', function(e){
-          var wheel_dir = e.originalEvent.deltaY;
-            //console.log("deltaY :"+wheel_dir);
-            //console.log($(sec+1).offset());
-            
-            var scroll = $(this).pageYOffset || $(this).scrollTop || $(this).scrollTop || 0;
-            if (scroll > 400) {
-               console.log("ops: +" -currScrollPos2 / 400 + 2);
-            
-            }
-          });
-      });
-        */
     </script>
   
   </head>  
@@ -144,15 +118,15 @@
     
     <header class="header">  
       <div class="home">
-        <a href="index.html">BlueNoul</a>
+        <a href="index.php">BlueNoul</a>
       </div>  
     
     <div class="container">
     <nav class="nav_top">
       
-      <a id="nav1" href="./portfolio.html">포트폴리오</a>
-      <a id="nav2" href="./board.html">게시판</a>
-      <a id="nav3" href="./login/login.html">로그인</a>
+      <a id="nav1" href="./portfolio.php">포트폴리오</a>
+      <a id="nav2" href="./board.php">게시판</a>
+      <a id="nav3" href="./login/login.php">로그인</a>
       
     </nav>  
   </div>  

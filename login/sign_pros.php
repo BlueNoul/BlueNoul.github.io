@@ -4,7 +4,7 @@ $hashedPassword = password_hash($_POST['passwd'], PASSWORD_DEFAULT);
 echo $hashedPassword;
 $sql = "
     INSERT INTO user
-    (ID, password, created)
+    (id, password, created)
     VALUES('{$_POST['id']}', '{$hashedPassword}', NOW()
     )";
 echo $sql;

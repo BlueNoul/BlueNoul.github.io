@@ -3,11 +3,11 @@ $conn = mysqli_connect("202.31.247.183", "root", "byby1004", "user");
 //아이디 비교와 비밀번호 비교가 필요한 시점이다.
 // 1차로 DB에서 비밀번호를 가져온다 
 // 평문의 비밀번호와 암호화된 비밀번호를 비교해서 검증한다.
-$email = $_POST['id'];
+$id = $_POST['id'];
 $password = $_POST['pw'];
 
 // DB 정보 가져오기 
-$sql = "SELECT * FROM user WHERE email ='{$email}'";
+$sql = "SELECT id, FROM user ='{$id}'";
 $result = mysqli_query($conn, $sql);
 
 $row = mysqli_fetch_array($result);
