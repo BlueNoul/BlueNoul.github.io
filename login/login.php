@@ -72,16 +72,22 @@
                 else{
                   // 존재하는 아이디입니다.
                   <?php
+                  error_reporting(E_ALL);
+                  ini_set("display_errors", 1);
+                  function Console_log($data){
+                    echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
+                }
 
                   $id =$_POST['id'];
                   $pwd =$_POST['pw'];
                   if(!is_null($id)){
                     //sql 연결
-                    $connect = mysqli_connect('localhost', 'root', 'byby1004', 'user');
+                    $connect = mysqli_connect('localhost', 'root', '1234', 'user');
                     if (!$connect) {
                       // die() 함수는 인수로 전달받은 메시지를 출력하고, 현재 실행 중인 PHP 스크립트를 종료시키는 함수입니다.
                       die("서버와의 연결 실패! : ".mysqli_connect_error());
                    }
+                    Console_log($connect);
                     //id 찾기
                     $sql = "SELECT * FROM user WHERE id = '$id';";
                     //결과 저장
@@ -92,8 +98,10 @@
                     }
                     //중복일때
                     if ( $id == $id_e ) {
-                      echo "bounce();";
-                      echo "txt.text("이미 존재하는 아이디입니다.");";
+                      ?>
+                      bounce();
+                      txt.text("이미 존재하는 아이디입니다.");
+                      <?php
                     } 
                    
                     else {
@@ -101,10 +109,12 @@
                       $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
                       $add_user = "INSERT INTO user ( id, password ,created ) VALUES ( '$id', '$encrypted_password','NOW()' );";
                       mysqli_query($connect, $add_user);
-                      echo "bounce();";
-                      echo "txt.css('color','green');";
-                      echo "txt.text("가입 성공").delay(400);";
-                      echo "$('#sign_section').submit();";
+                      ?>
+                      bounce();
+                      txt.css('color','green');
+                      txt.text("가입 성공").delay(400);
+                      $('#sign_section').submit();
+                      <?php
                       }
                         }
                   
