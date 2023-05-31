@@ -73,7 +73,7 @@
                     if(sign_pwd.val() != sign_pwd2.val()){
                       bounce()
                       txt.text("비밀번호가 일치하지 않습니다");
-                      console.log("nope");
+                      
                     }
                     else{
                       
@@ -104,6 +104,7 @@
                 // 로그인 아이디랑 비밀번호 데이터와 안맞을시 경고
                   //아이디가 맞지 않습니다.
                   //비밀번호가 맞지 않습니다.
+                  $('#login_section').submit();
                   })
                 }
             })
@@ -129,7 +130,7 @@
     <nav class="nav_top">
       
       <a id="nav1" href="../portfolio.html">포트폴리오</a>
-      <a id="nav2" href="../board/board.html">게시판</a>
+      <a id="nav2" href="../board.html">게시판</a>
       <a id="nav3" href="./login.html">로그인</a>
       
     </nav>  
