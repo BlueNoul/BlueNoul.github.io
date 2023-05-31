@@ -1,6 +1,6 @@
 <?php
-$conn = mysqli_connect("202.31.247.183", "root", "byby1004", "user");
-$hashedPassword = password_hash($_POST['passwd'], PASSWORD_DEFAULT);
+$conn = mysqli_connect('localhost', 'root', 'byby1004', 'user');
+$hashedPassword = password_hash($_POST['pw'], PASSWORD_DEFAULT);
 echo $hashedPassword;
 $sql = "
     INSERT INTO user
