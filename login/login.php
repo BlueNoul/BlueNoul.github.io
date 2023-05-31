@@ -70,63 +70,23 @@
                   
                 }
                 else{
+                  //회원가입 유효성 검사
+                  $('#sign_section').submit();
                   // 존재하는 아이디입니다.
-                  <?php
-                  error_reporting(E_ALL);
-                  ini_set("display_errors", 1);
-                  function Console_log($data){
-                    echo "<script>console.log( 'PHP_Console: " . $data . "' );</script>";
-                }
 
-                  $id =$_POST['id'];
-                  $pwd =$_POST['pw'];
-                  if(!is_null($id)){
-                    //sql 연결
-                    $connect = mysqli_connect('localhost', 'root', '1234', 'user');
-                    if (!$connect) {
-                      // die() 함수는 인수로 전달받은 메시지를 출력하고, 현재 실행 중인 PHP 스크립트를 종료시키는 함수입니다.
-                      die("서버와의 연결 실패! : ".mysqli_connect_error());
-                   }
-                    Console_log($connect);
-                    //id 찾기
-                    $sql = "SELECT * FROM user WHERE id = '$id';";
-                    //결과 저장
-                    $result = mysqli_query( $connect, $sql);
 
-                    while ( $jb_row = mysqli_fetch_array( $result)) {
-                      $id_e = $jb_row['id'];
-                    }
-                    //중복일때
-                    if ( $id == $id_e ) {
-                      ?>
-                      bounce();
-                      txt.text("이미 존재하는 아이디입니다.");
-                      <?php
-                    } 
-                   
-                    else {
-                      //해시매핑 비번
-                      $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
-                      $add_user = "INSERT INTO user ( id, password ,created ) VALUES ( '$id', '$encrypted_password','NOW()' );";
-                      mysqli_query($connect, $add_user);
-                      ?>
+                  // 가입 성공
                       bounce();
                       txt.css('color','green');
                       txt.text("가입 성공").delay(400);
-                      $('#sign_section').submit();
-                      <?php
-                      }
-                        }
-                  
-                  ?>
-                    
+                      
                 }
                   })
   
             }
               $('#login_btn').on('click',function(){
                 mod = "login";
-              
+                //처음 화면으로 돌아가기
                 console.log(mod);
                 location.reload();
               });
@@ -136,10 +96,14 @@
             )
             if(mod == "login"){
               $('#login_btn').on('click',function(){
+                //로그인 검사
+                $('#login_section').submit();
                 // 로그인 아이디랑 비밀번호 데이터와 안맞을시 경고
                   //아이디가 맞지 않습니다.
+
                   //비밀번호가 맞지 않습니다.
-                  $('#login_section').submit();
+
+                  //로그인 성공
                   })
                 }
             })
@@ -158,14 +122,14 @@
     
     <header class="header">  
       <div class="home">
-        <a href="../index.php">BlueNoul</a>
+        <a href="../index.html">BlueNoul</a>
       </div>  
     
     <div class="container">
     <nav class="nav_top">
       
-      <a id="nav1" href="../portfolio.php">포트폴리오</a>
-      <a id="nav2" href="../board.php">게시판</a>
+      <a id="nav1" href="../portfolio.html">포트폴리오</a>
+      <a id="nav2" href="../board.html">게시판</a>
       <a id="nav3" href="./login.php">로그인</a>
       
     </nav>  
@@ -179,11 +143,11 @@
 <div class="in_body"id="login_page" >
   <section id="wrap">
     
-    <form id="login_section" action="login.php" method="POST">
+    <form id="login_section" action="sign_in.php" method="POST">
         <input type="text" name="id"class="input_login"id="login_id" placeholder="ID ">
         <input type="password"name="pw" class="input_login"id="login_passwd" placeholder="Password">
     </form>
-    <form id="sign_section" action="login.php" method="POST">
+    <form id="sign_section" action="sign_up.php" method="POST">
       
       <input type="text" name="id"class="input_sign"id="sign_id" placeholder="ID">
       <input type="password" name="pw"class="input_sign"id="sign_passwd" placeholder="Password">
