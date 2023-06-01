@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect('localhost', 'root', 'byby1004', 'user');
+$conn = mysqli_connect('localhost', 'root', '1234', 'user');
 $hashedPassword = password_hash($_POST['pw'], PASSWORD_DEFAULT);
 echo $hashedPassword;
 $sql = "

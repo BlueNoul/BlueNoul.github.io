@@ -4,7 +4,7 @@
 $id = $_POST['id'];
 $password = $_POST['pw'];
 
-
+echo "<h1>sfesf</h1>";
 $conn = mysqli_connect('localhost', 'root', '1234', 'user');
 ysqli_set_charset($conn, 'utf8');  //인코딩 utf8로 설정
 
