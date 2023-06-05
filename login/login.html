@@ -20,31 +20,21 @@
     <script src="https://kit.fontawesome.com/7ca303bf26.js" crossorigin="anonymous"></script>
     <!-- 외부 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <?php
-        $id =$_POST['id'];
-        $pwd =$_POST['pw'];
-    ?>
+    
     <script>
           $(document).ready(function(){
             let mod = "login";
             let id = $('#login_id');
             let passwd =$('#login_passwd');
             let txt =$('#message');
-
+            $('#logined').hide();
             $('#sign_section').hide();
 
-            //해당 입력창 빨간 테두리
-            function redLine(name){
-                name = $(name);
-              name.css("border-style", "solid");
-              name.css('border-color', 'red');
-              
-              
-              
-            }
+           
             //경고창 흔들리는 효과
-            function bounce(){
-              txt.animate({opacity:1}, 700).delay(1000);
+            function shake(string){
+              txt.text(string);
+              txt.animate({opacity:1}, 700);
               txt.effect("shake");
               txt.animate({opacity:0},1000);
             }
@@ -67,28 +57,49 @@
                   console.log(sign_pwd.val());
                   console.log(sign_pwd2.val());
                   
-                //미일력 항목 찾기
+                //회원가입시 미입력 항목 찾기
                 if((sign_id.val() =="")||(sign_pwd.val()=="")||(sign_pwd2.val()=="")){
-                  bounce();
-                  txt.text("미입력 항목 존재");
+                  shake("미입력 항목 존재");
+                  
                 }
-                // 비밀번호가 일치하지 않습니다.
+                // 두 비밀번호가 일치하지 않습니다.
                 else if(sign_pwd.val() != sign_pwd2.val()){
-                  bounce();
-                  txt.text("비밀번호가 일치하지 않습니다");
+                  shake("비밀번호가 일치하지 않습니다");
                   
                 }
                 else{
+
                   //회원가입 유효성 검사
-                  $('#sign_section').submit();
-                  // 존재하는 아이디입니다.
+                  $.ajax({
+                    type: 'POST',
+                    url: 'sign_up.php',
+                    data: {id: sign_id.val(), password: sign_pwd.val()},
+                    datatype: 'json',
+                    success: function(signUp){
+                      if(signUp.result){
+                        //아이디가 존재하지 않는다면 true값을 받음
+                        txt.css('color','green');
+                        shake("가입 성공").delay(400);
+                        //
 
 
-                  // 가입 성공
-                      bounce();
-                      txt.css('color','green');
-                      txt.text("가입 성공").delay(400);
-                      
+                        //가입 성공후에 회원
+                        $('#notlogin').fadeOut(100);
+                        $('#username').html(signUp.id);
+                        $('#loginde').fadeIn(100);
+                        //
+                      }
+                      else{
+                        shake("존재하는 아이디입니다");
+                      }
+                    },
+                    error: alert("서버오류")
+
+                  });
+                  
+
+                  
+                   
                 }
                   })
   
@@ -108,18 +119,42 @@
               let login_pw = $('#login_pw');
               $('#login_btn').on('click',function(){
                 //로그인 검사
-                if((sign_id.val() =="")||(sign_pwd.val()=="")||(sign_pwd2.val()=="")){
+                if((login_id.val() =="")||(login_pw.val()=="")){
                   //미입력 항목 조사
-                  bounce();
-                  txt.text("미입력 항목 존재");
+                  shake("미입력 항목 존재");
                 }
-                $('#login_section').submit();
-                // 로그인 아이디랑 비밀번호 데이터와 안맞을시 경고
-                  //존재하지 않는 아이디입니다.
+                else{//
+                  $.ajax({
+                    type: 'POST',
+                    url: 'sign_in.php',
+                    data: {id: login_id.val(), password: sign_pwd.val()},
+                    datatype: 'json',
+                    success: function(signIn){
+                      if(!signIn.resultId){//아이디가 존재하지 않는다면(false)
+                        shake("존재하지 않는 아이디입니다");
+                        
+                      }
+                      else if(!signIn.resultPW){//아이디가 존재하는데 비밀번호가 맞지 않다면?
+                        shake("비밀번호가 맞지 않습니다.");
 
-                  //비밀번호가 맞지 않습니다.
+                      }
+                      else{
+                        //로그인 성공
+                        txt.css('color','green');
+                        shake("로그인 성공").delay(400);
+                        
+                        //로그인 성공창 띄운다.
+                        $('#notlogin').fadeOut(100);
+                        $('#username').html(signIn.id);
+                        $('#loginde').fadeIn(100);
+                      }
 
-                  //로그인 성공
+                    },
+                    error: alert(" 서버오류")
+
+                })
+              }
+                
                   })
                 }
             })
@@ -146,7 +181,7 @@
       
       <a id="nav1" href="../portfolio.html">포트폴리오</a>
       <a id="nav2" href="../board.html">게시판</a>
-      <a id="nav3" href="./login.php">로그인</a>
+      <a id="nav3" href="./login.html">로그인</a>
       
     </nav>  
   </div>  
@@ -157,7 +192,7 @@
 <!-- -------------------------------------------------------------------------------- -->
 <!-- 메인 화면 -->
 <div class="in_body"id="login_page" >
-  <section id="wrap">
+  <section class="wrap" id="notlogin">
     
     <form id="login_section" action="sign_in.php" method="POST">
         <input type="text" name="id"class="input_login"id="login_id" placeholder="ID ">
@@ -169,17 +204,23 @@
       <input type="password" name="pw"class="input_sign"id="sign_passwd" placeholder="Password">
       <input type="password" class="input_sign"id="sign_passwd2" placeholder="Password 재확인">
     </form>
+    
+    <div id="message"></div>
+    
+    <div id="button_box">
+      <div class="btns"id="login_btn"><i class="fas fa-lock"></i>로그인</div>
+      <div class="btns"id="sign_btn"><i class="fa-solid fa-user"></i>회원가입</div>
+    </div>
+    
+    
   </section>
-
-  <div id="message"></div>
   
-  <div id="button_box">
-    <div class="btns"id="login_btn"><i class="fas fa-lock"></i>로그인</div>
-    <div class="btns"id="sign_btn"><i class="fa-solid fa-user"></i>회원가입</div>
+    <div id="logined">
+      <h1 id="username"></h1>
+      <div id="logout"></div>
+    </div>
+  
   </div>
-
-
-</div>
   <!-- 푸터 -->
   <footer class ="footer">
     <div class="container">

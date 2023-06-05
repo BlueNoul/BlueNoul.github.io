@@ -1,26 +1,23 @@
 <?php
-$conn = mysqli_connect('localhost', 'root', '1234', 'user');
 
-echo $hashedPassword;
-$sql = "
-    INSERT INTO user
-    (id, password, created)
-    VALUES('{$_POST['id']}', '{$_POST['pw']}', NOW()
-    )";
-echo $sql;
-$result = mysqli_query($conn, $sql);
 
-if ($result) {
-    ?>
-    <script>
-        alert("회원가입이 완료되었습니다");
-        location.href = "login.html";
-    </script>
-    <?php
-} else {
-    
-        echo "저장에 문제가 생겼습니다. 관리자에게 문의해주세요.";
-        echo mysqli_error($conn);
+$id = $_POST['id'];
+$password = $_POST['pw'];
 
+$conn = mysqli_connect('localhost', 'root', 'root', 'user');
+mysqli_set_charset($conn, 'utf8');  //인코딩 utf8로 설정
+
+// DB 정보 가져오기 
+$sql_id = "SELECT * FROM user where id ='$id' ;";//user 테이블의 아이디에서 해당 아이디가 존재한다면
+
+if(mysqli_query($conn, $sql_id)) { //쿼리 실행해여 아이디가 있다면
+    $signUp['result'] = false;
+}
+else{// 아이디가 없다면 회원가입을 진행함
+    $signUp['result'] = true;
+    $signUp['id'] = $id;
+    session_start();//세션에 아이디와 비밀번호를 저장
+    $_SESSION['id']=$id;
+    $_SESSION['pw']=$password;
 }
 ?>

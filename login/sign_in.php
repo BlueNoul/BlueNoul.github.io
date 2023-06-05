@@ -3,34 +3,37 @@
 
 $id = $_POST['id'];
 $password = $_POST['pw'];
-$branch =null;
-$conn = mysqli_connect('localhost', 'root', '1234', 'user');
+session_start();
+
+$conn = mysqli_connect('localhost', 'root', 'root', 'user');
 mysqli_set_charset($conn, 'utf8');  //인코딩 utf8로 설정
 
 
 
 // DB 정보 가져오기 
-$sql = "SELECT * FROM user where id ='$id' && password = '$password';";
-$result = mysqli_query($conn, $sql);
+$sql_id = "SELECT * FROM user where id ='$id' ;";//user 테이블의 아이디에서 해당 아이디가 존재한다면
+$sql_pwd ="SELECT * FROM user where pw ='$password' ;";
 
 
 
-echo "<br><br>";
-if($result) { //쿼리로 받아온 리스트에 요청한 사용자 정보가 있다면 로그인
-    session_start();
-    
-    $_SESSION['id'] = $id;
-    $_SESSION['password'] = $password;
-    
-    echo "<script>
-        alert('로그인에 성공하였습니다.');
-        location.replace('login.php');
-        </script>";
+
+if(!mysqli_query($conn, $sql_id)) { //아이디가 존재하지 않는다면?
+ 
+    $signIn['resultID']= false;
 }
-else {
-    echo "<script>
-        alert('로그인 실패');
-        location.replace('login.php');
-        </script>";
+else if(!mysqli_query($conn, $sql_pwd)){
+    //비밀번호가 맞지 않다면
+    $signIn['resultID']= true;
+    $signIn['resultPW'] =false;
 }
+else{//로그인 성공
+    $signIn['resultID']=true;
+    $signIn['resultPW']=true;
+    $signIn['id'] = $id;
+    session_start();//세션에 아이디와 비밀번호를 저장
+    $_SESSION['id']=$id;
+    $_SESSION['pw']=$password;
+}
+
+
 ?>
