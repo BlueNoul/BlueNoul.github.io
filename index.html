@@ -73,7 +73,8 @@
           //console.log(scrH);
           $('#sec_main').delay(100).fadeOut(100);
           $('#sec_sub').delay(100).fadeIn(1000);
-          console.log("hello");
+          $('#sub_menu').addClass('viewing');
+          
           
         })
       });
@@ -110,7 +111,7 @@
       
       $(document).ready(function () {
         let rot = $('#sub_mask');
-        rot.on('scroll', function () { console.log("scroll: " + rot.scrollTop()) })
+        
         $("#s1").on('click', function () {
 
             rot.scrollTop(0);
