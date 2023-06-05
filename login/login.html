@@ -76,7 +76,9 @@
                     data: {id: sign_id.val(), password: sign_pwd.val()},
                     datatype: 'json',
                     success: function(signUp){
+                      console.log(signUp.result);
                       if(signUp.result){
+                        
                         //아이디가 존재하지 않는다면 true값을 받음
                         txt.css('color','green');
                         shake("가입 성공").delay(400);
@@ -93,7 +95,9 @@
                         shake("존재하는 아이디입니다");
                       }
                     },
-                    error: alert("서버오류")
+                    error:function(request,status,error){
+                      alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                       alert("서버오류");}
 
                   });
                   
@@ -130,6 +134,8 @@
                     data: {id: login_id.val(), password: login_pw.val()},
                     datatype: 'json',
                     success: function(signIn){
+                      console.log(signUp.resultId);
+                      console.log(signUp.resultPW);
                       if(!signIn.resultId){//아이디가 존재하지 않는다면(false)
                         shake("존재하지 않는 아이디입니다");
                         
@@ -150,7 +156,10 @@
                       }
 
                     },
-                    error: alert(" 서버오류")
+                    error: function(request,status,error){
+                      alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    alert(" 서버오류");
+                    }
 
                 })
               }
