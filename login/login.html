@@ -127,7 +127,7 @@
                   $.ajax({
                     type: 'POST',
                     url: 'sign_in.php',
-                    data: {id: login_id.val(), password: sign_pwd.val()},
+                    data: {id: login_id.val(), password: login_pwd.val()},
                     datatype: 'json',
                     success: function(signIn){
                       if(!signIn.resultId){//아이디가 존재하지 않는다면(false)
