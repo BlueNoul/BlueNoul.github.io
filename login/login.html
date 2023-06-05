@@ -134,8 +134,8 @@
                     data: {id: login_id.val(), password: login_pw.val()},
                     datatype: 'json',
                     success: function(signIn){
-                      console.log(signUp.resultId);
-                      console.log(signUp.resultPW);
+                      console.log(signIn.resultId);
+                      console.log(signIn.resultPW);
                       if(!signIn.resultId){//아이디가 존재하지 않는다면(false)
                         shake("존재하지 않는 아이디입니다");
                         
