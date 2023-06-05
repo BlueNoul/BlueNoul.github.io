@@ -108,7 +108,23 @@
         sec.forEach(sec => observer.observe(sec));
       });
       
-      
+      $(document).ready(function () {
+        let rot = $('#sub_mask');
+        rot.on('scroll', function () { console.log("scroll: " + rot.scrollTop()) })
+        $("#s1").on('click', function () {
+
+            rot.scrollTop(0);
+        })
+        $("#s2").on('click', function () {
+            rot.scrollTop(567);
+        })
+        $("#s3").on('click', function () {
+            rot.scrollTop(1134);
+        })
+        $("#s4").on('click', function () {
+            rot.scrollTop(1723);
+        })
+    })
     </script>
   
   </head>  
@@ -125,7 +141,7 @@
     <nav class="nav_top">
       
       <a id="nav1" href="./portfolio.html">포트폴리오</a>
-      <a id="nav2" href="./board.html">게시판</a>
+      <a id="nav2" href="./board/board.html">게시판</a>
       <a id="nav3" href="./login/login.php">로그인</a>
       
     </nav>  
@@ -136,6 +152,12 @@
 
 <!-- -------------------------------------------------------------------------------- -->
 <!-- 메인 화면 -->
+<div id="sub_menu">
+  <div id="s1">about me</div>
+  <div id="s2">IcanDo</div>
+  <div id="s3">프로젝트</div>
+  <div id="s4">contect</div>
+</div>
 
 <div class="in_body">
   <section class="main_section" id="sec_main">
@@ -168,86 +190,99 @@
   <!-- ----------------------------------------------------------------------------------- -->
   <!-- 슬라이드 1 -->
   <section class="main_section" id="sec_sub">
-  <!--  -->
-  <div class="mask" id="sub_mask">
-    <!-- About me-->
-    <section class ="section" id="sec_1" >
-      <div class="about_me">
-        
-        <img class="element_1" id="my_img" src="http://placehold.it/200">
-        <div class="element_1" id="about_box">
-          <h1>염휘건</h1>
-          <p> 나이 : 25 <br>
-            학력 : 전주대학교 컴퓨터공학과 <br>
-            경력 :         <br>
-            ...
-          </p>
-          
-        </div>
-      </div>
-      <div class="element_1"id="mylicense">
-        <h4>자격증</h4>
-        <ul>
-          <li>리눅스마스터 2급</li>
-          <li>cos pro</li>
-          <li>GTQ 1급</li>
-          <li>adsp</li>
-        </ul>
-      
+    <!--  -->
+    <div class="mask" id="sub_mask">
+        <!-- About me-->
+        <section class="section" id="sec_1">
+            <div class="about_me">
+
+                <img class="element_1" id="my_img" src="http://placehold.it/200">
+                <div class="element_1" id="about_box">
+                    <h1>염휘건</h1>
+                    <p> 나이 : 25 <br>
+                        학력 : 전주대학교 컴퓨터공학과<br>
+                        경력 : <br>
+                        자격증 :
+                    </p>
+                    <ul>
+                        <li>리눅스마스터 2급</li>
+                        <li>cos pro</li>
+                        <li>GTQ 1급</li>
+                        <li>ADSP</li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- 슬라이드 2 -->
+        <!-- 사용 가능한 언어 -->
+        <section class="section" id="sec_2">
+            <hr>
+            <h1>사용 언어</h1>
+            <!-- 네모 아이콘 형태로 언어 아이콘 나열, 호버시 관련 사용 경험 크롤링 (깃허브,백준,vscode)-->
+
+            <table id="langs">
+                <tr>
+                    <td style="background-color: #0015ff;">C</td>
+                    <td style="background-color: #0084ff;">C++</td>
+                    <td style="background-color: #ff8400;">Java</td>
+                </tr>
+                <tr>
+                    <td style="background-color:rgb(255, 213, 0);">Python</td>
+                    <td style="background-color:rgb(255, 111, 0);">javascript</td>
+                    <td style="background-color:rgb(148, 185, 0);">Html,CSS</td>
+                </tr>
+            </table>
+
+        </section>
+
+
+
+
+        <!-- 슬라이드 3 -->
+        <!-- 해왔던 프로젝트들을 간단하게 보여줌 -->
+        <section class="section" id="sec_3">
+            <hr>
+            <div class="proj_summery">
+
+
+                <h1>프로젝트 관련 경험 소개</h1>
+                <div id="pr_wrap">
+
+                    <div>프로젝트 1</div>
+                    <div>프로젝트 2</div>
+                    <div>프로젝트 3</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section" id="sec_4">
+            <hr>
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact__container bd-grid">
+                <form action="" class="contact__form">
+                    <div class="contact__inputs">
+                        <input type="text" placeholder="Name" class="contact__input">
+                        <input type="mail" placeholder="Email" class="contact__input">
+                    </div>
+
+                    <textarea name="" id="" cols="0" rows="10" placeholder="Write a message"
+                        class="contact__input"></textarea>
+
+                    <input type="submit" value="Send Message" class="contact__button">
+                </form>
+            </div>
+        </section>
     </div>
-    </section>
-    <hr>
-    <!-- 슬라이드 2 -->
-    <!-- 사용 가능한 언어 -->
-    <section class ="section" id="sec_2">
-      <div></div>
-      <h1>사용 언어</h1>
-      <div class="lang">
-        <!-- 네모 아이콘 형태로 언어 아이콘 나열, 호버시 관련 사용 경험 크롤링 (깃허브,백준,vscode)-->
-        <div> c</div>
-        <div>c++</div>
-        <div>java</div>
-        <div>python</div>
-        <div>javascript</div>
-      </div>
-    </section>
 
-    
-    <hr>
-    
-    <!-- 슬라이드 3 -->
-    <!-- 해왔던 프로젝트들을 간단하게 보여줌 -->
-    <section class ="section" id="sec_3">
-      <div class="proj_summery">
-        <div class="service-item">
-          <i class="fas fa-code"></i>
-          <h3>프로젝트 관련 경험 소개</h3>
-          <p>전체 프로젝트(프로젝트 호버시 포토폴리오 해당 페이지롤 이동)</p>
-          <p>프로젝트1(슬라이드 이미지와 내용만 간단히)</p>
-          <p>프로젝트2</p>
-        </div>
-        
-      </div>
-    </section>
-    <hr>
-    <!-- Contact -->
-    <section class ="section" id="sec_4">
-      
-      <h2 class="section-title">Contact</h2>
-      
-      <div class="contact__container bd-grid">
-        <form action="" class="contact__form">
-          <div class="contact__inputs">
-            <input type="text" placeholder="Name" class="contact__input">
-            <input type="mail" placeholder="Email" class="contact__input">
-          </div>
-          
-          <textarea name="" id="" cols="0" rows="10" placeholder="Write a message" class="contact__input"></textarea>
 
-          <input type="submit" value="Send Message" class="contact__button">
-        </form>
-      </div>
-    </section>
+</section>
   </div>
 
   

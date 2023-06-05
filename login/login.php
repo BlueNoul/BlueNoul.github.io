@@ -16,7 +16,7 @@
     <script src="/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://kit.fontawesome.com/7ca303bf26.js" crossorigin="anonymous"></script>
     <!-- 외부 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -27,16 +27,25 @@
     <script>
           $(document).ready(function(){
             let mod = "login";
-            let id = $('#login_id').val();
-            let passwd =$('#login_passwd').val();
-            
+            let id = $('#login_id');
+            let passwd =$('#login_passwd');
             let txt =$('#message');
+
             $('#sign_section').hide();
 
+            //해당 입력창 빨간 테두리
+            function redLine(name){
+                name = $(name);
+              name.css("border-style", "solid");
+              name.css('border-color', 'red');
+              
+              
+              
+            }
             //경고창 흔들리는 효과
             function bounce(){
               txt.animate({opacity:1}, 700).delay(1000);
-              
+              txt.effect("shake");
               txt.animate({opacity:0},1000);
             }
             //가입 버튼 눌렀을때 가입창 띄우기
@@ -59,13 +68,13 @@
                   console.log(sign_pwd2.val());
                   
                 //미일력 항목 찾기
-                if((sign_id.val() =="")||(sign_pwd=="")||(sign_pwd2=="")){
-                  bounce()
+                if((sign_id.val() =="")||(sign_pwd.val()=="")||(sign_pwd2.val()=="")){
+                  bounce();
                   txt.text("미입력 항목 존재");
                 }
                 // 비밀번호가 일치하지 않습니다.
                 else if(sign_pwd.val() != sign_pwd2.val()){
-                  bounce()
+                  bounce();
                   txt.text("비밀번호가 일치하지 않습니다");
                   
                 }
@@ -95,11 +104,18 @@
             }
             )
             if(mod == "login"){
+              let login_id = $('#login_id');
+              let login_pw = $('#login_pw');
               $('#login_btn').on('click',function(){
                 //로그인 검사
+                if((sign_id.val() =="")||(sign_pwd.val()=="")||(sign_pwd2.val()=="")){
+                  //미입력 항목 조사
+                  bounce();
+                  txt.text("미입력 항목 존재");
+                }
                 $('#login_section').submit();
                 // 로그인 아이디랑 비밀번호 데이터와 안맞을시 경고
-                  //아이디가 맞지 않습니다.
+                  //존재하지 않는 아이디입니다.
 
                   //비밀번호가 맞지 않습니다.
 
@@ -168,8 +184,8 @@
   <footer class ="footer">
     <div class="container">
     <nav>
-      <a>유튜브 </a>
-      <a>백준</a>
+      
+      <a href="https://www.acmicpc.net/user/bb7788">Beakjoon</a>
       <a>블로그</a>
       <a>깃허브</a>
       <a>Email</a>

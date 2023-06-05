@@ -1,111 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
+
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>BlueNoul - Board</title>
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="css/css.css">
-    <style>
-      .container {
-        color : black;
-      }
-    </style>
-  </head>
-  <body>
-  <!-- 메뉴바 -->
-    <header>
+    <title>BlueNoul - Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./board.css">
+    
+    <!-- 스크립트 파일 -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <!-- 외부 아이콘 -->
+    
+    
+    <script>
+      //======메인 페이지 스크립트===================================================
+      $(document).ready(function(){
+        //숨기기
+        $('#detail').hide();
+        
+        $('.view_set').on('click',function(){
+            $('#detail').show();
+
+            $('#back').on('click',function(){$('#detail').hide();})
+        })
+      })
+      
+      
+    </script>
+  
+  </head>  
+  <!-- body------------------------------------------------------------------------- -->
+  <body class="body">
+    <!-- Navigation Bar -->
+    
+    <header class="header">  
       <div class="home">
-        <a href="../home.html">BlueNoul</h3>
-      </div>
-      <div class="container">
-        <nav>
-          <ul>
-            
-            <li><a href="../portfolio/portfolio.html">포트폴리오</a></li>
-            <li><a href="board.html">게시판</a></li>
-            <li><a href="../index.html">로그인</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+        <a href="../index.html">BlueNoul</a>
+      </div>  
+    
+    <div class="container">
+    <nav class="nav_top">
+      
+      <a id="nav1" href="../portfolio.html">포트폴리오</a>
+      <a id="nav2" href="./board.html">게시판</a>
+      <a id="nav3" href="../login/login.php">로그인</a>
+      
+    </nav>  
+  </div>  
+  
+</header>  
 
-    <main>
-      <div class="board_wrap">
-        <div class="board_title">
-            <strong>게시판</strong>
-            <p>글을 작성하려면 로그인이 필요합니다.</p>
-        </div>
-        <div class="board_list_wrap">
-            <div class="board_list">
-                <div class="top">
-                    <div class="num">번호</div>
-                    <div class="title">제목</div>
-                    <div class="writer">글쓴이</div>
-                    <div class="date">작성일</div>
-                    <div class="count">조회</div>
-                </div>
-                <div>
-                    <div class="num">5</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">김이름</div>
-                    <div class="date">2021.1.15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">4</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">김이름</div>
-                    <div class="date">2021.1.15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">3</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">김이름</div>
-                    <div class="date">2021.1.15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">2</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">김이름</div>
-                    <div class="date">2021.1.15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">1</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">김이름</div>
-                    <div class="date">2021.1.15</div>
-                    <div class="count">33</div>
-                </div>
-            </div>
-            <div class="board_page">
-                <a href="#" class="bt first"><<</a>
-                <a href="#" class="bt prev"><</a>
-                <a href="#" class="num on">1</a>
-                <a href="#" class="num">2</a>
-                <a href="#" class="num">3</a>
-                <a href="#" class="num">4</a>
-                <a href="#" class="num">5</a>
-                <a href="#" class="bt next">></a>
-                <a href="#" class="bt last">>></a>
-            </div>
-            <div class="bt_wrap">
-                <a href="write.html" class="on">등록</a>
-                <!--<a href="#">수정</a>-->
-            </div>
-        </div>
+
+<!-- -------------------------------------------------------------------------------- -->
+<!-- 메인 화면 -->
+
+<div class="bg" id="blur_bg">
+    <div class="view_set">
+        <p id="v_title">제목: ㄷㄹ</p>
+        <p id="v_name">id :오징어</p>
+        <hr>
+        <p id="v_content">내용내용내용....</p>
     </div>
-    </main>
-
-    <footer>
-      <div class="container">
-        <p>BlueNoul &copy; 2023</p>
-      </div>
-    </footer>
-  </body>
+    
+</div> 
+<div id="detail"class="bg" >
+    <p id="d_title">제목</p>
+    <p id="d_name">id</p>
+    <hr>
+    <p id="b_content">내용내용<button id="back">이전으로</button></p>
+</div>
+ 
+ <footer id="footer">
+    <nav>
+        <button>글쓰기 </button>
+        <button>편집</button>
+        <button>삭제</button>
+        
+      </nav>
+ </footer>
+</body>
 </html>
-
