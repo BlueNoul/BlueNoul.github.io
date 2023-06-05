@@ -4,7 +4,7 @@
 $id = $_POST['id'];
 $password = $_POST['pw'];
 
-$conn = mysqli_connect('localhost', 'root', 'root', 'user');
+$conn = mysqli_connect('localhost', 'root', '1234', 'user');
 mysqli_set_charset($conn, 'utf8');  //인코딩 utf8로 설정
 
 // DB 정보 가져오기 
