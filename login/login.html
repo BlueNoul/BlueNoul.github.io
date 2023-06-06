@@ -135,6 +135,7 @@
                     data: {id: login_id.val(), password: login_pw.val()},
                     
                     success: function(signIn){
+                      signIn=jQuery.parseJSON(signIn);
                       console.log("로그인 시도:"+signIn['resultID']);
                       
                       if(signIn['resultID'] == 'false' ){//아이디가 존재하지 않는다면(false)
