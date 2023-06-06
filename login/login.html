@@ -135,7 +135,7 @@
                     data: {id: login_id.val(), password: login_pw.val()},
                     
                     success: function(signIn){
-                      console.log(signIn);
+                      console.log("로그인 시도:"+signIn.resultId);
                       
                       if(!signIn.resultId){//아이디가 존재하지 않는다면(false)
                         shake("존재하지 않는 아이디입니다");
