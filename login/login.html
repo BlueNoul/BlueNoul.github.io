@@ -73,10 +73,11 @@
                   $.ajax({
                     type: 'POST',
                     url: 'sign_up.php',
-                    data: {id: sign_id.val(), password: sign_pwd.val()},
-                    datatype: 'json',
+                    data: {id: sign_id.val(), pw: sign_pwd.val()},
+                    
                     success: function(signUp){
-                      console.log(signUp);
+                      signIn=jQuery.parseJSON(signUp);
+                      console.log(signUp.result);
                       if(signUp.result){
                         
                         //아이디가 존재하지 않는다면 true값을 받음
@@ -132,7 +133,7 @@
                   $.ajax({
                     type: 'POST',
                     url: 'sign_in.php',
-                    data: {id: login_id.val(), pw: login_pw.val()},
+                    data: {id: login_id.val(), pw: login_pw.val(),},
                     
                     success: function(signIn){
                       signIn=jQuery.parseJSON(signIn);
