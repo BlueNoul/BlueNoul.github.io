@@ -19,17 +19,26 @@ $sql_pwd ="SELECT * FROM user where pw ='$password' ;";
 
 if(!mysqli_query($conn, $sql_id)) { //아이디가 존재하지 않는다면?
  
-    echo $signIn['resultID']= false;
+    $signIn['resultID']= false;
+    $signIn['resultPW']= false;
+    $json = json_encode(array('resultID' => false, 'resultPW' => false));
+    echo($json);
 }
 else if(!mysqli_query($conn, $sql_pwd)){
     //비밀번호가 맞지 않다면
-    echo $signIn['resultID']= true;
-    echo $signIn['resultPW'] =false;
+    $signIn['resultID']= true;
+    $signIn['resultPW'] =false;
+    $json = json_encode(array('resultID' => true, 'resultPW' => false));
+    echo($json);
 }
 else{//로그인 성공
-    echo $signIn['resultID']=true;
-    echo $signIn['resultPW']=true;
-    echo $signIn['id'] = $id;
+    $signIn['resultID']=true;
+    $signIn['resultPW']=true;
+    $signIn['id'] = $id;
+
+    $json = json_encode(array('resultID' => false, 'resultPW' => false, 'id'=> $id));
+    echo($json);
+    
     session_start();//세션에 아이디와 비밀번호를 저장
     $_SESSION['id']=$id;
     $_SESSION['pw']=$password;
