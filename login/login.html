@@ -78,6 +78,7 @@
                     success: function(signUp){
                       signUp=jQuery.parseJSON(signUp);
                       console.log("회원가입시도"+signUp['result']);
+                      
                       if(signUp['result']=="true"){
                         
                         //아이디가 존재하지 않는다면 true값을 받음
