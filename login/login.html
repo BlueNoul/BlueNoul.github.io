@@ -53,9 +53,7 @@
 
                 $('#sign_btn').on('click',function(){
                   console.log("가입 시작");
-                  console.log("id: "+sign_id.val());
-                  console.log(sign_pwd.val());
-                  console.log(sign_pwd2.val());
+                  
                   
                 //회원가입시 미입력 항목 찾기
                 if((sign_id.val() =="")||(sign_pwd.val()=="")||(sign_pwd2.val()=="")){
@@ -67,18 +65,17 @@
                   shake("비밀번호가 일치하지 않습니다");
                   
                 }
-                else{
-
-                  //회원가입 유효성 검사------------------------------------------
+                else{                  //회원가입 유효성 검사------------------------------------------
                   $.ajax({
                     type: 'POST',
                     url: 'sign_up.php',
                     data: {id: sign_id.val(), pw: sign_pwd.val()},
                     
                     success: function(signUp){
+
                       signUp=jQuery.parseJSON(signUp);
                       console.log("회원가입시도"+signUp['result']);
-                      
+
                       if(signUp['result']=="true"){
                         
                         //아이디가 존재하지 않는다면 true값을 받음
@@ -99,18 +96,13 @@
                         shake("존재하는 아이디입니다");
                       }
                     },
-                    error:function(request,status,error){
+                    error: function(request,status,error){
                       alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                        alert("서버오류");}
 
                   });
-                  
-
-                  
-                   
                 }
                   })
-  
             }
               $('#login_btn').on('click',function(){
                 mod = "login";
@@ -118,8 +110,6 @@
                 console.log(mod);
                 location.reload();
               });
-
-            
             }
             )
             //--------------------------------------로그인-----------------------------------
@@ -211,13 +201,13 @@
 <!-- 메인 화면 -->
 <div class="in_body"id="login_page" >
   <section class="wrap" id="notlogin">
-    
+    <!-- 로그인 -->
     <form id="login_section" action="sign_in.php" method="POST">
         <input type="text" name="id"class="input_login"id="login_id" placeholder="ID ">
         <input type="password"name="pw" class="input_login"id="login_passwd" placeholder="Password">
     </form>
     <form id="sign_section" action="sign_up.php" method="POST">
-      
+      <!-- 회원가입 -->
       <input type="text" name="id"class="input_sign"id="sign_id" placeholder="ID">
       <input type="password" name="pw"class="input_sign"id="sign_passwd" placeholder="Password">
       <input type="password" class="input_sign"id="sign_passwd2" placeholder="Password 재확인">

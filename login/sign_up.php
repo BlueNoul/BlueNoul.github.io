@@ -11,6 +11,8 @@ mysqli_set_charset($conn, 'utf8');  //인코딩 utf8로 설정
 $sql_id = "SELECT * FROM user where id ='$id' ;";//user 테이블의 아이디에서 해당 아이디가 존재한다면
 $id_num= mysqli_num_rows(mysqli_query($conn,$sql_id));// 아이디수
 
+echo("<script>alert("1")</script>");
+
 
 if($id_num) { //쿼리 실행해여 아이디가 있다면
     
