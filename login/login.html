@@ -27,7 +27,10 @@
             let id = $('#login_id');
             let passwd =$('#login_passwd');
             let txt =$('#message');
-            $('#logined').hide();
+            
+            //$('#logined').hide();
+            $('#notlogin').hide();
+            
             $('#sign_section').hide();
 
            
@@ -88,8 +91,8 @@
                         setTimeout(function(){
 
                           $('#notlogin').fadeOut(100);
-                          $('#username').html(signIn.id);
-                          $('#loginde').fadeIn(100);
+                          $('#username').html(signUp.id+"님 <br>환영합니다");
+                          $('#logined').fadeIn(100);
                         },1000);
                       }
                       else{
@@ -149,7 +152,7 @@
                         setTimeout(function(){
 
                           $('#notlogin').fadeOut(100);
-                          $('#username').html(signIn.id);
+                          $('#username').html(signIn.id+"님 <br>환영합니다");
                           $('#loginde').fadeIn(100);
                         },1000);
                       }
@@ -224,8 +227,9 @@
   </section>
   
     <div id="logined">
-      <h1 id="username"></h1>
-      <div id="logout"></div>
+      <div id="username"></div>
+      
+      <div id="logout">로그아웃</div>
     </div>
   
   </div>
