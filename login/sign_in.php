@@ -31,7 +31,7 @@ else if((mysqli_query($conn, $sql_id))&&(!mysqli_query($conn, $sql_pwd))){
 }
 else if((mysqli_query($conn, $sql_id))&&(mysqli_query($conn, $sql_pwd))){//로그인 성공
     
-    $json = json_encode(array('resultID' => false, 'resultPW' => false, 'id'=> $id));
+    $json = json_encode(array('resultID' => true, 'resultPW' => true, 'id'=> $id));
     echo($json);
 
     session_start();//세션에 아이디와 비밀번호를 저장
