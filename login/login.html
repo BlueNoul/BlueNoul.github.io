@@ -132,7 +132,7 @@
                   $.ajax({
                     type: 'POST',
                     url: 'sign_in.php',
-                    data: {id: login_id.val(), password: login_pw.val()},
+                    data: {id: login_id.val(), pw: login_pw.val()},
                     
                     success: function(signIn){
                       signIn=jQuery.parseJSON(signIn);
