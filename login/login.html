@@ -69,16 +69,16 @@
                 }
                 else{
 
-                  //회원가입 유효성 검사
+                  //회원가입 유효성 검사------------------------------------------
                   $.ajax({
                     type: 'POST',
                     url: 'sign_up.php',
                     data: {id: sign_id.val(), pw: sign_pwd.val()},
                     
                     success: function(signUp){
-                      signIn=jQuery.parseJSON(signUp);
-                      console.log(signUp.result);
-                      if(signUp.result){
+                      signUp=jQuery.parseJSON(signUp);
+                      console.log("회원가입시도"+signUp['result']);
+                      if(signUp['result']=="true"){
                         
                         //아이디가 존재하지 않는다면 true값을 받음
                         txt.css('color','green');
@@ -87,10 +87,12 @@
 
 
                         //가입 성공후에 회원
-                        $('#notlogin').fadeOut(100);
-                        $('#username').html(signUp.id);
-                        $('#loginde').fadeIn(100);
-                        //
+                        setTimeout(function(){
+
+                          $('#notlogin').fadeOut(100);
+                          $('#username').html(signIn.id);
+                          $('#loginde').fadeIn(100);
+                        },1000);
                       }
                       else{
                         shake("존재하는 아이디입니다");
