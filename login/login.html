@@ -69,12 +69,12 @@
                   $.ajax({
                     type: 'POST',
                     url: 'sign_up.php',
-                    data: {id: sign_id.val(), pw: sign_pwd.val()},
+                    data: {id: sign_id.val(), pw: sign_pwd.val(),},
                     
                     success: function(signUp){
 
                       signUp=jQuery.parseJSON(signUp);
-                      console.log("회원가입시도"+signUp['result']);
+                      console.log("회원가입시도: "+signUp['result']);
 
                       if(signUp['result']=="true"){
                         
