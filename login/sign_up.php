@@ -21,7 +21,7 @@ if($id_num) { //쿼리 실행해여 아이디가 있다면
 else{// 아이디가 없다면 회원가입을 진행함
     //아이디 비번 레코드에 추가
 
-    //mysqli_query($conn,"insert into user (id,pw,created) values('"$id"','"$password"','NOW()');");
+    mysqli_query($conn,"insert into user (id,pw,created) values('"$id"','"$password"','NOW()');");
 
     //
     $json =json_encode(array('result' => "true", 'id'=>$id));
