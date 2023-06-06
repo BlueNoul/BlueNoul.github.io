@@ -14,22 +14,25 @@ mysqli_set_charset($conn, 'utf8');  //인코딩 utf8로 설정
 $sql_id = "SELECT * FROM user where id ='$id' ;";//user 테이블의 아이디에서 해당 아이디가 존재한다면
 $sql_pwd ="SELECT * FROM user where password ='$password' ;";
 
+$id_num= mysqli_num_rows($sql_id);
+$pw_num= mysqli_num_rows($sql_pwd);
 
 
 
-if(!mysqli_query($conn, $sql_id)) { //아이디가 존재하지 않는다면?
+if(!$id_num) { //아이디가 존재하지 않는다면?
  
     
     $json = json_encode(array('resultID' => false, 'resultPW' => false));
     echo($json);
 }
-else if((mysqli_query($conn, $sql_id))&&(!mysqli_query($conn, $sql_pwd))){
+else if(($id_num)&&(!$pw_num)){
     //아이디는 존재하는데 비밀번호가 맞지 않다면
     
     $json = json_encode(array('resultID' => true, 'resultPW' => false));
     echo($json);
 }
-else if((mysqli_query($conn, $sql_id))&&(mysqli_query($conn, $sql_pwd))){//로그인 성공
+else if(($id_num)&&($pw_num)){
+    //로그인 성공
     
     $json = json_encode(array('resultID' => true, 'resultPW' => true, 'id'=> $id));
     echo($json);
