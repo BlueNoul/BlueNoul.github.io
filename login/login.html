@@ -76,7 +76,7 @@
                     data: {id: sign_id.val(), password: sign_pwd.val()},
                     datatype: 'json',
                     success: function(signUp){
-                      console.log(signUp.result);
+                      console.log(signUp);
                       if(signUp.result){
                         
                         //아이디가 존재하지 않는다면 true값을 받음
@@ -118,6 +118,7 @@
             
             }
             )
+            //--------------------------------------로그인
             if(mod == "login"){
               let login_id = $('#login_id');
               let login_pw = $('#login_pw');
@@ -132,10 +133,10 @@
                     type: 'POST',
                     url: 'sign_in.php',
                     data: {id: login_id.val(), password: login_pw.val()},
-                    datatype: 'json',
+                    
                     success: function(signIn){
-                      console.log(signIn.resultId);
-                      console.log(signIn.resultPW);
+                      console.log(signIn);
+                      
                       if(!signIn.resultId){//아이디가 존재하지 않는다면(false)
                         shake("존재하지 않는 아이디입니다");
                         
