@@ -23,7 +23,7 @@
     
     <!-- 스크립트 파일 -->
     
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="../jquery-3.7.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://kit.fontawesome.com/7ca303bf26.js" crossorigin="anonymous"></script>

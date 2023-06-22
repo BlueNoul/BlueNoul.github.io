@@ -17,7 +17,7 @@ if(isset($_SESSION['id'])){
     <link rel="stylesheet" type="text/css" href="./board.css">
     
     <!-- 스크립트 파일 -->
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="../jquery-3.7.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <!-- 외부 아이콘 -->
     
