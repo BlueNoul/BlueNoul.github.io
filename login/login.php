@@ -1,5 +1,5 @@
 <?php
- session_start();
+ 
  if(!mysqli_connect('localhost', 'root', '1234', 'user')){
      echo "<script>alert('데이터베이스 오류');</script>";
  }
