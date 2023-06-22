@@ -1,4 +1,10 @@
-
+<?php
+session_start();
+if(isset($_SESSION['id'])){
+    echo "<script>location.href='./board.html'</script>";
+     exit;
+}
+?>
 <html>
 
   <head>
@@ -15,34 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <!-- 외부 아이콘 -->
     
-    
-    <script>
-      //======메인 페이지 스크립트===================================================
-      $(document).ready(function(){
-        //숨기기
-        $('#detail').hide();
-        $('#create').hide();
-        
-        //게시글 클릭시 전체보기
-        $('.view_set').on('click',function(){
-            $('#detail').show();
-
-            $('.back').on('click',function(){
-              $('#detail').hide();})
-        })
-        //글쓰기 창 띄우기
-        $('#btn_create').on('click', function(){
-          $('#create').show();
-          $('.back').on('click', function(){
-            $('#create').hide();
-          })
-        })
-        //편집창은 먼저 편집할 항목을 선택한 후 클릭하면 전체보기
-      })
-      
-      
-    </script>
-  
+     
   </head>  
   <!-- body------------------------------------------------------------------------- -->
   <body class="body">
@@ -70,27 +49,11 @@
 <!-- 메인 화면 -->
 
 <div class="bg" id="blur_bg">
-    <div class="view_set">
-        <p id="v_title">제목: ㄷㄹ</p>
-        <p id="v_name">id :오징어</p>
-        <hr>
-        <p id="v_content">내용내용내용....</p>
-    </div>
     
+    게시판을 이용하려면 로그인하세요
 </div> 
-<div id="detail"class="bg">
-    <p id="d_title">제목</p>
-    <p id="d_name">id</p>
-    <hr>
-    <p id="b_content">내용내용<button class="back">이전으로</button></p>
-</div>
-<div id="create" class="bg">
-  <span>제목 : </span><input id="input_title">
-  <p id="input_name">id :<span id="getId"></span></p>
-  <hr>
-  <input id="input_content">
-  <button class="back">이전으로</button>
-</div>
+
+
  <footer id="footer">
     <nav>
         <button id="btn_create">글쓰기 </button>

@@ -1,6 +1,6 @@
 <?php
 //---------------------------로그인 php----------------------------------
-
+session_start();
 $id = $_POST['id'];
 $password = $_POST['pw'];
 
@@ -37,7 +37,7 @@ else if(($id_num)&&($pw_num)){
     $json = json_encode(array('resultID' => 'true', 'resultPW' => 'true', 'id'=> $id));
     echo($json);
 
-    session_start();//세션에 아이디와 비밀번호를 저장
+    //세션에 아이디와 비밀번호를 저장
     $_SESSION['id']=$id;
     $_SESSION['pw']=$password;
 }
